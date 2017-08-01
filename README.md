@@ -16,7 +16,6 @@ We want to create a web application which displays the number of availiable bike
 ### Stretch Goal:
 * Much time spent on CSS Design. Particularly mastering box-shadows. 
 
-
 ## Wireframe:
 
 ![altinline](https://user-images.githubusercontent.com/25408167/28664138-fb9d0a20-72c7-11e7-9fb2-8c81838fe83f.png)
