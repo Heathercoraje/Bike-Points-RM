@@ -15,14 +15,13 @@ const handleHomeRoute = (res) => {
 }
 
 const handlePublic = (res, url) => {
-	const extension = url.split('.')[1];
 	const extensionType = {
 		html: 'text/html',
 		css: 'text/css',
 		js: 'application/javascript',
 		ico: 'image/x-icon',
 		img: 'image/png'
-	}
+	}[url.split('.')[1]];
 
 	const filePath = path.join(__dirname, '..', url);
 	fs.readFile(filePath, (error, file) => {
@@ -30,13 +29,19 @@ const handlePublic = (res, url) => {
 			res.writeHead(500, 'Content-Type: text/html');
 			res.end('<h1>Sorry something went wrong</h1>');
 		} else {
-			res.writeHead(200, `Content-Type:${extensionType[extension]}`);
+			res.writeHead(200, `Content-Type:${extensionType}`);
 			res.end(file)
 		}
 	})
 }
 
+const handleSearch = (req, res) => {
+	var searchInput = req.url.split('=')[1];
+	console.log(searchInput);
+}
+
 module.exports = {
 	handleHomeRoute,
-	handlePublic
+	handlePublic,
+	handleSearch
 }
