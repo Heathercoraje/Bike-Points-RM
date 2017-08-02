@@ -11,8 +11,16 @@
 
 
 <form>
-	<input type='text' placeholder='Search for Bikes in London 🚴 🚵 ' name='search' value='' autofocus>
+	<input list='suggestions' id='bikeStationInput' type='text' placeholder='Search for Bikes in London 🚴 🚵 ' name='search' value='' autofocus>
 </form>
+
+<div id='result'>
+</div>
+
+<div id='container'>
+	<div id="numOfBikes"></div>
+	<div id="numOfEmptyDocks"></div>
+</div>
 
 <div class="wrappingContainer">
 	<div id='bikesAvailiableContainer'>

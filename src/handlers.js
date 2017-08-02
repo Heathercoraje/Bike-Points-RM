@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const rp = require('request-promise');
+const findMatches = require('./logic.js')
 const env = require('env2')('./.env');
 const TFL_ID = process.env.TFL_ID;
 const TFL_KEY = process.env.TFL_KEY;
@@ -69,8 +70,20 @@ const handleSearch = (req, res) => {
 		});
 }
 
+const handleAuto = (req, res) => {
+  const str = decodeURI(req.url.split('=')[1]);
+  findMatches(str, (arr) => { // once reading file and getting the result, execute callback function
+    res.writeHead(200, 'Content-Type:application/json');
+    let matchObj = {
+      "suggestions": arr
+    };
+    res.end(JSON.stringify(matchObj));
+  });
+}
+
 module.exports = {
 	handleHomeRoute,
 	handlePublic,
-	handleSearch
+	handleSearch,
+	handleAuto
 }
