@@ -37,3 +37,17 @@ test('test for index.js file', (t) => {
 		t.end();
 	})
 })
+
+test('test search', (t) => {
+	shot.inject(router, {method: 'GET', url: '/search'}, (response) => {
+		t.equal(response.statusCode, 200, 'Should respond with status code 200');
+		t.end();
+	})
+})
+
+test('test auto', (t) => {
+	shot.inject(router, {method: 'GET', url: '/auto'}, (response) => {
+		t.equal(response.statusCode, 200, 'Should respond with status code 200');
+		t.end();
+	})
+})
