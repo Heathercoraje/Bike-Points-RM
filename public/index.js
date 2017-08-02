@@ -1,6 +1,6 @@
 var formSubmit = document.querySelector('form');
+var numOfBikesElement = document.querySelector('#numOfAvailiableBikes');
 var formInput = document.querySelector('#bikeStationInput')
-var numOfBikesElement = document.querySelector('#numOfBikes');
 var numOfEmptyDocksElement = document.querySelector('#numOfEmptyDocks');
 var result = document.querySelector('#result');
 
@@ -40,6 +40,7 @@ function renderAuto(loadEvent, inputString) {
     }
   }
   result.replaceChild(suggestions, result.firstChild)
+  
 }
 
 formSubmit.addEventListener('submit', function(event) {

@@ -8,25 +8,24 @@ const findMatches = (str, callback) => {
   fs.readFile(filePath, 'utf8', (err, file) => {
     if (err) {
       console.log(err);
-    }
-    else {
+    } else {
+      file.toLowerCase().split(",").forEach((station) => {
+        if (station.startsWith(newStr) && result.length <= 3) {
+          result.push(station);
+        }
+      });
+      if (result.length <= 3) {
         file.toLowerCase().split(",").forEach((station) => {
-           if (station.startsWith(newStr) && result.length <= 10) {
-             result.push(station);
-           }
-         });
-         if (result.length <= 10) {
-           file.toLowerCase().split(",").forEach((station) => {
-             if ((station.indexOf(newStr) !== -1) && (result.length <= 10) && (result.indexOf(station) === -1)) {
-               result.push(station);
-             }
-           })
+          if ((station.indexOf(newStr) !== -1) && (result.length <= 3) && (result.indexOf(station) === -1)) {
+            result.push(station);
+          }
+        })
 
-};
-       callback(result);
-     }
-   });
-  }
+      };
+      callback(result);
+    }
+  });
+}
 
 
 module.exports = findMatches
