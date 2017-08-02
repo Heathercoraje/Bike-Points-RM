@@ -1,0 +1,57 @@
+body {
+	background-color: goldenrod;
+	font-family: Helvetica;
+}
+
+form {
+	max-width:550px;
+	margin:50px auto;
+}
+
+input {
+	width: 100%;
+	padding: 20px;
+  font-size: 32px;
+  outline: 0;
+  text-align: center;
+  border: 10px solid #F7F7F7;
+  border-radius: 5px;
+	box-shadow:0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow:inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.wrappingContainer {
+	width: 550px;
+	border: 2px solid blue;
+	margin: 0px auto;
+	display: flex;
+	justify-content: space-evenly;
+	height: 200px;
+}
+
+#bikesAvailiableContainer {
+	width: 50%;
+	height: 100%;
+	background: pink;
+}
+
+#emptyDocksContainer {
+	width: 50%;
+	height: 100%;
+	background: red;
+}
+
+.bikesAvailiableText {
+	width: 100%;
+	text-align: center;
+	padding:  20px;
+	border: 2px solid green;
+}
+
+.emptyDocksText {
+	width: 50%;
+	border: 2px solid blue;
+}
+
+
+
