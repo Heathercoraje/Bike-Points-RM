@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape ./tests/test-server.js | tap-spec",
+    "test": "istanbul cover tape ./tests/test-server.js | tap-spec",
     "devStart": "nodemon ./src/server.js"
+
   },
   "repository": {
     "type": "git",
