@@ -51,3 +51,10 @@ test('test auto', (t) => {
 		t.end();
 	})
 })
+
+test('test for blah.css', (t) => {
+	shot.inject(router, {method: 'GET', url: '/public/blah.css'},(response) => {
+		t.equal(response.statusCode, 500, 'Should response with status code 500');
+		t.end();
+	})
+})
