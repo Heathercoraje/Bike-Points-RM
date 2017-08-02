@@ -49,15 +49,22 @@ const handleSearch = (req, res) => {
 	rp(options)
 		.then((body) => {
 			const bikePointId = body[0].id;
-			options.uri =`https://api.tfl.gov.uk/BikePoint/${bikePointId}?app_id=&app_key=`;
-			console.log(options);
+			options.uri = `https://api.tfl.gov.uk/BikePoint/${bikePointId}?app_id=&app_key=`;
+			// console.log(options);
 			return rp(options)
-			.then((body) =>{
-				console.log(body);
-			})
+				.then((body) => {
+					var numOfBikes = body.additionalProperties[6].value;
+					var numOfEmptyDocks = body.additionalProperties[7].value;
+					const objToSend = {
+						'numOfBikes': numOfBikes,
+						'numOfEmptyDocks': numOfEmptyDocks,
+					}
+					res.writeHead(200, 'Content-Type: application/json');
+					res.end(JSON.stringify(objToSend));
+				})
 		})
 		.catch((err) => {
-			console.log(err);
+			res.end(JSON.stringify('input incorrect station'));
 		});
 }
 
@@ -66,10 +73,3 @@ module.exports = {
 	handlePublic,
 	handleSearch
 }
-
-//${} var
-// hay a7san 3shan ekon ashe asr3 m7al ma ndal nkteb kol kleme l7al b string metl 1 mn7othen m3 m3ed b 2
-// 1. 'hello' + searchInput + 'world'
-// 2. `hello ${searchInput}`
-
-// req badha callback *(errr, res, body)* al rp badhash
