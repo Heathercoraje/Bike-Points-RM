@@ -1,4 +1,5 @@
 var formSubmit = document.querySelector('form');
+var formInput = document.querySelector('#bikeStationInput')
 
 function fetchData(url, callback) {
   var xhr = new XMLHttpRequest(); //create xhr request
@@ -19,4 +20,16 @@ formSubmit.addEventListener('submit', function(event) {
   fetchData(url, function(response) {
     // console.log(response);
   })
+})
+
+formInput.addEventListener('input', function(event) {
+  var inputString = event.target.value.toLowerCase().trim();
+  var url = '/auto?q=' + inputString;
+  var xhr = new XMLHttpRequest(); //create new xhr request
+  xhr.open('GET', url); //open GET request
+  xhr.send(); // send request
+
+  xhr.addEventListener('load', function(loadEvent) {
+    renderAuto(loadEvent, inputString);
+  });
 })

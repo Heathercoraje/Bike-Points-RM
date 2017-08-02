@@ -11,7 +11,7 @@ const findMatches = (str, callback) => {
     else {
         file.toLowerCase().split(",").forEach((station) => { //split at the comma and loop through the string
            if (station.startsWith(str) && result.length <= 10) {  //if string matches the first few inputs
-             result.push(station); //push the star name into the auto result
+             result.push(station); //push the station name into the auto result
            }
          });
          if (result.length <= 10) {
