@@ -17,6 +17,6 @@ formSubmit.addEventListener('submit', function(event) {
   var searchInput = event.target[0].value.toLowerCase().trim(); //gets the value of the search input
   var url = '/search?q=' + searchInput // create url with search input
   fetchData(url, function(response) {
-    console.log(response);
+    // console.log(response);
   })
 })

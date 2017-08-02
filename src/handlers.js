@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const rp = require('request-promise');
 
 const handleHomeRoute = (res) => {
 	const filePath = path.join(__dirname, '..', 'public', 'index.html')
@@ -38,6 +39,20 @@ const handlePublic = (res, url) => {
 const handleSearch = (req, res) => {
 	var searchInput = req.url.split('=')[1];
 	console.log(searchInput);
+	const TFLurl = `https://api.tfl.gov.uk/BikePoint/Search?query=${searchInput}&app_id=&app_key=`;
+	var options = {
+		uri: TFLurl,
+		json: true
+	};
+	rp(options)
+		.then((body) => {
+			console.log(body);
+			var bikePointId = body[0].id;
+			console.log(bikePointId);
+		})
+		.catch((err) => {
+			console.log(err);
+		});
 }
 
 module.exports = {
