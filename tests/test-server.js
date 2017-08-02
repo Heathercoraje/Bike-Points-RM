@@ -17,23 +17,21 @@ test('Unknow uri', (t) => {
 	})
 })
 
-test('test for style.css file', (t) => {
+test('test public', (t) => {
 	shot.inject(router, {method: 'GET', url: '/public/style.css'}, (response) => {
 		t.equal(response.statusCode, 200, 'Should respond with status code 200');
 		t.end();
 	})
-})
-
-test('test for reset.css file', (t) => {
 	shot.inject(router, {method: 'GET', url: '/public/reset.css'}, (response) => {
 		t.equal(response.statusCode, 200, 'Should respond with status code 200');
 		t.end();
 	})
-})
-
-test('test for index.js file', (t) => {
 	shot.inject(router, {method: 'GET', url: '/public/index.js'}, (response) => {
 		t.equal(response.statusCode, 200, 'Should respond with status code 200');
+		t.end();
+	})
+	shot.inject(router, {method: 'GET', url: '/public/blah.css'},(response) => {
+		t.equal(response.statusCode, 500, 'Should response with status code 500');
 		t.end();
 	})
 })
@@ -45,16 +43,9 @@ test('test search', (t) => {
 	})
 })
 
-test('test auto', (t) => {
+test('test autocomplete widget', (t) => {
 	shot.inject(router, {method: 'GET', url: '/auto'}, (response) => {
 		t.equal(response.statusCode, 200, 'Should respond with status code 200');
-		t.end();
-	})
-})
-
-test('test for blah.css', (t) => {
-	shot.inject(router, {method: 'GET', url: '/public/blah.css'},(response) => {
-		t.equal(response.statusCode, 500, 'Should response with status code 500');
 		t.end();
 	})
 })
