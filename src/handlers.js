@@ -72,11 +72,11 @@ const handleSearch = (req, res) => {
 const handleAuto = (req, res) => {
   const str = decodeURI(req.url.split('=')[1]);
   findMatches(str, (arr) => { // once reading file and getting the result, execute callback function
-    response.writeHead(200, 'Content-Type:application/json');
+    res.writeHead(200, 'Content-Type:application/json');
     let matchObj = {
       "suggestions": arr
     };
-    response.end(JSON.stringify(matchObj));
+    res.end(JSON.stringify(matchObj));
   });
 }
 
