@@ -5,6 +5,8 @@ const env = require('env2')('./.env');
 const TFL_ID = process.env.TFL_ID;
 const TFL_KEY = process.env.TFL_KEY;
 
+
+
 const handleHomeRoute = (res) => {
 	const filePath = path.join(__dirname, '..', 'public', 'index.html')
 	fs.readFile(filePath, (error, file) => {
@@ -41,9 +43,9 @@ const handlePublic = (res, url) => {
 
 const handleSearch = (req, res) => {
 	const searchInput = req.url.split('=')[1];
-	const TFLurl = `https://api.tfl.gov.uk/BikePoint/Search?query=${searchInput}&app_id=&app_key=`;
-	const options = { 
-		uri: TFLurl, 
+	const TFLurl = `https://api.tfl.gov.uk/BikePoint/Search?query=${searchInput}&app_id=${TFL_ID}&app_key=${TFL_KEY}`;
+	const options = {
+		uri: TFLurl,
 		json: true // // Automatically parses the JSON string in the response
 	};
 	rp(options)

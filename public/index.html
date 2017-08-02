@@ -9,15 +9,22 @@
 </head>
 <body>
 
+
 <form>
-	<input type='text' placeholder='search for bike point' name='search' value='' autofocus>
+	<input type='text' placeholder='Search for Bikes in London 🚴 🚵 ' name='search' value='' autofocus>
 </form>
 
-<div id='container'>
-	<div id="numOfBikes"></div>
-	<div id="numOfEmptyDocks"></div>
-</div>
+<div class="wrappingContainer">
+	<div id='bikesAvailiableContainer'>
+		<div class="bikesAvailiableText">Bikes Availiable in London </div>
+		<div id="numOfBikes"></div>
+	</div>
 
+	<div id='emptyDocksContainer'>
+	<div class="emptyDocksText">Bikes Availiable in Paris </div>
+		<div id="numOfEmptyDocks"></div>
+	</div>
+</div>
 <script src="./public/index.js"> </script>
 </body>
 </html>
