@@ -1,6 +1,7 @@
 body {
 	background-color: goldenrod;
 	font-family: Helvetica;
+	font-weight: bold;
 }
 
 form {
@@ -49,9 +50,29 @@ input {
 }
 
 .emptyDocksText {
-	width: 50%;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
 	border: 2px solid blue;
 }
+
+#numOfAvailiableBikes {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid green
+}
+
+#numOfEmptyDocks {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 2px solid green
+}
+
+
 
 
 

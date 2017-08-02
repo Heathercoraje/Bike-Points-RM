@@ -1,5 +1,5 @@
 var formSubmit = document.querySelector('form');
-var numOfBikesElement = document.querySelector('#numOfBikes');
+var numOfBikesElement = document.querySelector('#numOfAvailiableBikes');
 var numOfEmptyDocksElement = document.querySelector('#numOfEmptyDocks');
 
 function fetchData(url, callback) {
