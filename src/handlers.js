@@ -52,7 +52,6 @@ const handleSearch = (req, res) => {
 		.then((body) => {
 			const bikePointId = body[0].id;
 			options.uri = `https://api.tfl.gov.uk/BikePoint/${bikePointId}?app_id=&app_key=`;
-			// console.log(options);
 			return rp(options)
 				.then((body) => {
 					var numOfBikes = body.additionalProperties[6].value;
