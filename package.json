@@ -26,6 +26,7 @@
     "tape": "^4.8.0"
   },
   "dependencies": {
+    "env2": "^2.2.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }

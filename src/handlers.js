@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const rp = require('request-promise');
+const env = require('env2')('./.env');
+const TFL_ID = process.env.TFL_ID;
+const TFL_KEY = process.env.TFL_KEY;
 
 const handleHomeRoute = (res) => {
 	const filePath = path.join(__dirname, '..', 'public', 'index.html')
@@ -37,18 +40,21 @@ const handlePublic = (res, url) => {
 }
 
 const handleSearch = (req, res) => {
-	var searchInput = req.url.split('=')[1];
-	console.log(searchInput);
+	const searchInput = req.url.split('=')[1];
 	const TFLurl = `https://api.tfl.gov.uk/BikePoint/Search?query=${searchInput}&app_id=&app_key=`;
-	var options = {
-		uri: TFLurl,
-		json: true
+	const options = { //mn asmo a5tyrat
+		uri: TFLurl, // al moke3 tb3 al searchInput
+		json: true // // Automatically parses the JSON string in the response
 	};
 	rp(options)
 		.then((body) => {
-			console.log(body);
-			var bikePointId = body[0].id;
-			console.log(bikePointId);
+			const bikePointId = body[0].id;
+			options.uri =`https://api.tfl.gov.uk/BikePoint/${bikePointId}?app_id=&app_key=`;
+			console.log(options);
+			return rp(options)
+			.then((body) =>{
+				console.log(body);
+			})
 		})
 		.catch((err) => {
 			console.log(err);
@@ -60,3 +66,10 @@ module.exports = {
 	handlePublic,
 	handleSearch
 }
+
+//${} var
+// hay a7san 3shan ekon ashe asr3 m7al ma ndal nkteb kol kleme l7al b string metl 1 mn7othen m3 m3ed b 2
+// 1. 'hello' + searchInput + 'world'
+// 2. `hello ${searchInput}`
+
+// req badha callback *(errr, res, body)* al rp badhash
