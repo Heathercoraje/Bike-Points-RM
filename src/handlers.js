@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const rp = require('request-promise');
+const findMatches = require('./logic.js')
 
 const handleHomeRoute = (res) => {
 	const filePath = path.join(__dirname, '..', 'public', 'index.html')
@@ -53,6 +54,18 @@ const handleSearch = (req, res) => {
 		.catch((err) => {
 			console.log(err);
 		});
+}
+
+const handleAuto = (req, res) => {
+  const str = decodeURI(req.url.split('=')[1]);
+  findMatches(str, (arr) => { // once reading file and getting the result, execute callback function
+    response.writeHead(200, 'Content-Type:application/json');
+    let matchObj = {
+      "suggestions": arr
+    };
+    response.end(JSON.stringify(matchObj));
+  });
+
 }
 
 module.exports = {
