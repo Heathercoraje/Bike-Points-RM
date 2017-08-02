@@ -58,5 +58,3 @@ test('test for blah.css', (t) => {
 		t.end();
 	})
 })
-
-//katia *.*
