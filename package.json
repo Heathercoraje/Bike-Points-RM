@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "istanbul cover tape ./tests/test-server.js | tap-spec",
+    "start": "node ./src/server.js",
     "devStart": "nodemon ./src/server.js"
 
   },
