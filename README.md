@@ -1,8 +1,21 @@
 # Bike-Points-RM
 
+[![Build Status](https://travis-ci.org/harrydry/Bike-Points-RM.svg?branch=master)](https://travis-ci.org/harrydry/Bike-Points-RM)
+
 ## Link to Website:
-To check out the app, please click [here]()
-## Our Product::
+To check out the app, please clone this repository.
+```
+git clone
+```
+Install the dependencies
+```
+npm i
+```
+Run start
+```
+npm run devStart
+```
+## Our Product:
 
 We want to create a web application which displays the number of availiable bikes and the number of spaces to park a park throughout each bike point throughout London.
 
