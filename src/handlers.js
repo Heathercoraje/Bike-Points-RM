@@ -66,6 +66,7 @@ const handleSearch = (req, res) => {
 				})
 		})
 		.catch((err) => {
+      response.writeHead(500, `Content-Type: text/html`);
 			res.end(JSON.stringify('input incorrect station'));
 		});
 }
