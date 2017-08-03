@@ -19,8 +19,13 @@ function fetchData(url, callback) {
 function render (response) {
   var numOfBikes = response.numOfBikes;
   var numOfEmptyDocks = response.numOfEmptyDocks;
-  numOfBikesElement.innerText = numOfBikes;
-  numOfEmptyDocksElement.innerText = numOfEmptyDocks;
+  if (numOfBikes === undefined) {
+    numOfBikesElement.innerText = 'N/A';
+    numOfEmptyDocksElement.innerText = 'N/A';
+  } else {
+    numOfBikesElement.innerText = numOfBikes;
+    numOfEmptyDocksElement.innerText = numOfEmptyDocks;
+  }
 }
 
 function renderAuto(loadEvent, inputString) {
@@ -40,7 +45,7 @@ function renderAuto(loadEvent, inputString) {
     }
   }
   result.replaceChild(suggestions, result.firstChild)
-  
+
 }
 
 formSubmit.addEventListener('submit', function(event) {
