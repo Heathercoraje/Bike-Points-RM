@@ -1,10 +1,23 @@
 # Bike-Points-RM
 
-## Link to Website:
-To check out the app, please click [here]()
-## Our Product::
+[![Build Status](https://travis-ci.org/harrydry/Bike-Points-RM.svg?branch=master)](https://travis-ci.org/harrydry/Bike-Points-RM)
 
-We want to create a web application which displays the number of availiable bikes and the number of spaces to park a park throughout each bike point throughout London. 
+## Link to Website:
+To check out the app, please clone this repository.
+```
+git clone
+```
+Install the dependencies
+```
+npm i
+```
+Run start
+```
+npm run devStart
+```
+## Our Product:
+
+We want to create a web application which displays the number of availiable bikes and the number of spaces to park a park throughout each bike point throughout London.
 
 ## User Story:
 
@@ -14,15 +27,16 @@ We want to create a web application which displays the number of availiable bike
 * I would like to know how many bikes are availiable in each location throughout London
 
 ### Stretch Goal:
-* Much time spent on CSS Design. Particularly mastering box-shadows. 
+* Much time spent on CSS Design. Particularly mastering box-shadows.
+* Add autocomplete function as well
 
 ## Wireframe:
 
-![altinline](https://user-images.githubusercontent.com/25408167/28664138-fb9d0a20-72c7-11e7-9fb2-8c81838fe83f.png)
+![altinline](https://user-images.githubusercontent.com/25408167/28833762-ff59232c-76e8-11e7-978c-07936ea571e0.png)
 
 ## Architecture:
 
-![altinline](https://user-images.githubusercontent.com/25408167/28664133-f7bb4c0a-72c7-11e7-9c11-7759ecc6b1a4.JPG)
+![altinline](https://user-images.githubusercontent.com/25408167/28860132-d9a5a080-7763-11e7-9ae3-5b85b022c6df.JPG)
 
 ## Code Guidelines:
 * CamelCase for variable names
